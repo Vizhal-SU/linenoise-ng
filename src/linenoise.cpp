@@ -3458,3 +3458,13 @@ int linenoiseInstallWindowChangeHandler(void) {
 int linenoiseKeyType(void) {
   return keyType;
 }
+
+/* Force redraw of the current input line (prompt + buffer).
+ * Useful when asynchronous output (like chat messages) is printed.
+ */
+void linenoiseRefresh(void) {
+    if (current && current->buf) {
+        current->buf->refreshLine(*current);
+    }
+}
+
