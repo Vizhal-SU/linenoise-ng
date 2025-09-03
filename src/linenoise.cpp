@@ -861,9 +861,10 @@ class InputBuffer {
   void clearScreen(PromptBase& pi);
   int incrementalHistorySearch(PromptBase& pi, int startChar);
   int completeLine(PromptBase& pi);
-  void refreshLine(PromptBase& pi);
+  
 
  public:
+  void refreshLine(PromptBase& pi);
   InputBuffer(char32_t* buffer, char* widthArray, int bufferLen)
       : buf32(buffer),
         charWidths(widthArray),
